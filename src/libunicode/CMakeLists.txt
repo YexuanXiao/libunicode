@@ -156,7 +156,7 @@ if(LIBUNICODE_SIMD_IMPLEMENTATION STREQUAL "std" OR LIBUNICODE_SIMD_IMPLEMENTATI
     # spelling, so the SSE4.1/AVX flags below were never applied while the x86
     # intrinsics in intrinsics.h (gated on __x86_64__) were still compiled,
     # breaking the FreeBSD build with always_inline SSE4.1 errors.
-    string(TOLOWER "${CMAKE_SYSTEM_PROCESSOR}" _LIBUNICODE_PROCESSOR_LOWER)
+    string(TOLOWER "${CMAKE_CXX_COMPILER_ARCHITECTURE_ID}" _LIBUNICODE_PROCESSOR_LOWER)
     if(_LIBUNICODE_PROCESSOR_LOWER STREQUAL "x86_64" OR _LIBUNICODE_PROCESSOR_LOWER STREQUAL "amd64")
         set(LIBUNICODE_SIMD_SOURCES
             simd_detector.cpp
